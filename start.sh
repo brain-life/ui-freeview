@@ -5,7 +5,7 @@
 #    /usr/local/freesurfer/bin/freeview $file &
 #done
 
-if [ -d /input/ouput/output/mri ];
+if [ -d /input/output/output/mri ];
 then
     #for freesurfer output
     /usr/local/freesurfer/bin/freeview -v \
