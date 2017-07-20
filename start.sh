@@ -5,9 +5,11 @@
 #    /usr/local/freesurfer/bin/freeview $file &
 #done
 
+
+#for single output (like from process view)
 if [ -d /input/output/output/mri ];
 then
-    #for freesurfer output
+    #for single freesurfer output
     /usr/local/freesurfer/bin/freeview -v \
         /input/output/output/mri/T1.mgz \
         /input/output/output/mri/wm.mgz \
@@ -18,6 +20,13 @@ then
         /input/output/output/surf/rh.white:edgecolor=blue \
         /input/output/output/surf/rh.pial:edgecolor=red
 else
-    #for non freesurfer output, just find any .nii.gz
-    /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz`
+
+    #for multiple datasets downloaded
+    if [ -d /input/download ];
+    then
+        /usr/local/freesurfer/bin/freeview `find /input -name T1.mgz`
+    else
+        #for non freesurfer output, just find any nifti
+        /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz`
+    fi
 fi
