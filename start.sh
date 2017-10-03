@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+
 #for single output (like from process view)
 if [ -d /input/output/mri ];
 then

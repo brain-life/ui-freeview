@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install -y \
 #COPY password.txt .
 #RUN cat password.txt password.txt | vncpasswd && rm password.txt
 
-#RUN curl ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.0.tar.gz | tar xvz -C /usr/local
-RUN curl ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/5.3.0/freesurfer-Linux-centos6_x86_64-stable-pub-v5.3.0.tar.gz | tar xvz -C /usr/local
+RUN curl ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.0.tar.gz | tar xz -C /usr/local #check2
+#RUN curl ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/5.3.0/freesurfer-Linux-centos6_x86_64-stable-pub-v5.3.0.tar.gz | tar xvz -C /usr/local
 RUN apt-get install -y tcsh libglu1-mesa libgomp1 libjpeg62
 ENV FREESURFER_HOME=/usr/local/freesurfer
 
