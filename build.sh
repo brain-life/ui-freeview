@@ -1,5 +1,6 @@
-docker build -t soichih/vncserver-freeview .
+docker build -t soichih/vncserver-freeview-gpu .
+
 if [ $? -eq 0 ];
 then
-    docker push soichih/vncserver-freeview
+    docker push soichih/vncserver-freeview-gpu
 fi

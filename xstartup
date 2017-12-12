@@ -1,12 +1,17 @@
 #!/bin/bash
 
+#should I do this on startvnc?
+vglclient &
+
+#XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
+
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 #for single output (like from process view)
 if [ -d /input/output/mri ];
 then
     #for single freesurfer output
-    /usr/local/freesurfer/bin/freeview -v \
+    vglrun /usr/local/freesurfer/bin/freeview -v \
     /input/output/mri/T1.mgz \
     /input/output/mri/wm.mgz \
     /input/output/mri/brainmask.mgz \
@@ -20,9 +25,9 @@ else
     #for multiple datasets downloaded
     if [ -d /input/download ];
     then
-        /usr/local/freesurfer/bin/freeview `find /input -name T1.mgz`
+        vglrun /usr/local/freesurfer/bin/freeview `find /input -name T1.mgz`
     else
         #for non freesurfer output, just find any nifti
-        /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz`
+        vglrun /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz`
     fi
 fi

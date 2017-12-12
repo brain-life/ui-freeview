@@ -1,5 +1,0 @@
-[Desktop Entry] 
-
-Type=Application
-Exec=/start.sh
-#Exec=/usr/local/freesurfer/bin/freeview /input/t1.nii.gz
