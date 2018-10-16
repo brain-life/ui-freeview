@@ -7,27 +7,29 @@ vglclient &
 
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
-#for single output (like from process view)
+#for neuro/freesurfer
 if [ -d /input/output/mri ];
 then
-    #for single freesurfer output
     vglrun /usr/local/freesurfer/bin/freeview -v \
-    /input/output/mri/T1.mgz \
-    /input/output/mri/wm.mgz \
-    /input/output/mri/brainmask.mgz \
-    /input/output/mri/aseg.mgz:colormap=lut:opacity=0.2 \
-    -f /input/output/surf/lh.white:edgecolor=blue \
-    /input/output/surf/lh.pial:edgecolor=red \
-    /input/output/surf/rh.white:edgecolor=blue \
-    /input/output/surf/rh.pial:edgecolor=red
-else
-
-    #for multiple datasets downloaded
-    if [ -d /input/download ];
-    then
-        vglrun /usr/local/freesurfer/bin/freeview `find /input -name T1.mgz`
-    else
-        #for non freesurfer output, just find any nifti
-        vglrun /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz`
-    fi
+	    /input/output/mri/T1.mgz \
+	    /input/output/mri/wm.mgz \
+	    /input/output/mri/brainmask.mgz \
+	    /input/output/mri/aseg.mgz:colormap=lut:opacity=0.2 \
+	    -f /input/output/surf/lh.white:edgecolor=blue \
+	    /input/output/surf/lh.pial:edgecolor=red \
+	    /input/output/surf/rh.white:edgecolor=blue \
+	    /input/output/surf/rh.pial:edgecolor=red
+    exit
 fi
+
+#for neuro/track/trk
+if [ -f /input/track.trk ];
+then
+    vglrun /usr/local/freesurfer/bin/freeview -tract /input/track.trk -layout 1
+    exit
+fi
+
+#all else just show any .nii.gz
+vglrun /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz
+
+#sleep 3600
