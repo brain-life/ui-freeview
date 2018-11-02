@@ -10,8 +10,8 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 #for neuro/freesurfer
 if [ -d /input/output/mri ];
 then
-    vglrun /usr/local/freesurfer/bin/freeview -v \
-	    /input/output/mri/T1.mgz \
+    vglrun /usr/local/freesurfer/bin/freeview -layout 4 -viewport 3d \
+	    -v /input/output/mri/T1.mgz \
 	    /input/output/mri/wm.mgz \
 	    /input/output/mri/brainmask.mgz \
 	    /input/output/mri/aseg.mgz:colormap=lut:opacity=0.2 \
