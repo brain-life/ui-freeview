@@ -30,6 +30,6 @@ then
 fi
 
 #all else just show any .nii.gz
-vglrun /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz
+vglrun /usr/local/freesurfer/bin/freeview `find /input -name *.nii.gz`
 
 #sleep 3600
