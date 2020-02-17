@@ -3,7 +3,8 @@
 #should I do this on startvnc?
 vglclient &
 
-#XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
+#freeview is multi-window app, so we need windowmaanger
+XFCE_PANEL_MIGRATE_DEFAULT=true startxfce4 &
 
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
