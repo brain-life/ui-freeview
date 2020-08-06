@@ -2,7 +2,7 @@
 
 FreeView / noVNC docker container develoepd by and used on brainlife.io
 
-# Copyright (c) 2020 brainlife.io at University of Texas at Austin and Indiana University
+#### Copyright (c) 2020 brainlife.io at University of Texas at Austin and Indiana University
 
 ### Authors
 - [Soichi Hayashi](hayashis@iu.edu)
